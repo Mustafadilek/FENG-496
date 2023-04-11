@@ -1,0 +1,72 @@
+<div class="outer">
+    <div class="container" style="margin-left:720px  ;">
+        <div class="row">
+            <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
+                <div class="panel border bg-white" >
+                    <div class="panel-heading">
+                        <img src="assets/patient.png" style="width:200px; height: auto" alt="">
+                        <h3 class="pt-3 font-weight-bold">Patient Registeration</h3>
+                    </div>
+                    <div class="panel-body pt-3">
+                        <form >
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <input type="text" placeholder="FirstName">
+                                </div> 
+                            </div>
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <input type="text" placeholder="LastName">
+                                </div> 
+                            </div>
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <input type="text" placeholder="Age">
+                                </div> 
+                            </div>
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <input [type]="type" placeholder="Address">
+                                </div> 
+                            </div>
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <input type="text" placeholder="National ID">
+                                </div> 
+                            </div>
+                            
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <input type="text" placeholder="Phone Number">
+                                </div> 
+                            </div>
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <input [type]="type" placeholder="Password">
+                                    <span (click)="hideShowPass()" [class]="fa"></span>
+                                </div> 
+                            </div>
+                            <div class="form-group pt-3">
+                                
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    
+                                  </select>
+                        </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-block mt-4 w-100">Sign Up</button>
+                            <div class="text-center pt-4 text-muted">Already have account ?
+                                <a id="forget" routerLink="/login" >Log In</a>
+                            </div>
+
+                        
+                        
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
