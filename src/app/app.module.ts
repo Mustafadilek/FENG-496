@@ -8,19 +8,32 @@ import { LoginComponent } from './components/login/login.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import {ReactiveFormsModule} from'@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { PersonelLoginComponent } from './personel-login/personel-login.component';
+import { PersonalRegistrationComponent } from './personal-registration/personal-registration.component';
+import { PatientSelectionComponent } from './patient-selection/patient-selection.component';
+
+
+
+
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistrationComponent,
     LoginComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    PersonelLoginComponent,
+    PersonalRegistrationComponent,
+    PatientSelectionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

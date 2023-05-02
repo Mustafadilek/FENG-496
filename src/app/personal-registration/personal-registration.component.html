@@ -5,50 +5,46 @@
                 <div class="panel border bg-white" >
                     <div class="panel-heading">
                         <img src="assets/patient.png" style="width:200px; height: auto" alt="">
-                        <h3 class="pt-3 font-weight-bold">Patient Registeration</h3>
+                        <h3 class="pt-3 font-weight-bold">Personal Registeration</h3>
                     </div>
                     <div class="panel-body pt-3">
                         <form [formGroup]="addForm" novalidate class="form" >
                             <div class="form-group pt-3">
                                 <div class="input-field">
-                                    <input type="text" formControlName="patient_name" placeholder="Name" id="patient_name">
+                                    <input type="text" formControlName="doctor_name" placeholder="Name" id="doctor_name">
                                 </div> 
                             </div>
                             <div class="form-group pt-3">
                                 <div class="input-field">
-                                    <input type="text" formControlName="patient_surname" placeholder="Surname" id="patient_surname">
+                                    <input type="text" formControlName="doctor_surname" placeholder="Surname" id="doctor_surname">
                                 </div> 
                             </div>
                             <div class="form-group pt-3">
                                 <div class="input-field" style="border:0cm" >
-                                    <input type="date" placeholder="Date Of Birth" formControlName="patient_date_of_birth" id="patient_date_of_birth">
+                                    <input type="date" placeholder="Date Of Birth" formControlName="doctor_date_of_birth" id="doctor_date_of_birth">
                                 </div> 
                             </div>
+                        
                             <div class="form-group pt-3">
                                 <div class="input-field">
-                                    <input type="text" placeholder="Address" formControlName="patient_address" id="patient_address">
-                                </div> 
-                            </div>
-                            <div class="form-group pt-3">
-                                <div class="input-field">
-                                    <input type="text" placeholder="National Id" formControlName="patient_national_id" id="national_id">
+                                    <input type="text" placeholder="National Id" formControlName="doctor_national_id" id="doctor_national_id">
                                 </div>
                             </div>
                             
                             <div class="form-group pt-3">
                                 <div class="input-field">
-                                    <input type="text" placeholder="Phone Number" formControlName="patient_phone_number" id="patient_phone_number">
+                                    <input type="text" placeholder="Phone Number" formControlName="doctor_phone_number" id="doctor_phone_number">
                                 </div> 
                             </div>
                             <div class="form-group pt-3">
                                 <div class="input-field">
-                                    <input [type]="type" placeholder="Password" formControlName="patient_password" id="patient_password">
+                                    <input [type]="type" placeholder="Password" formControlName="doctor_password" id="doctor_password">
                                     <span (click)="hideShowPass()" [class]="fa"></span>
                                 </div> 
                             </div>
                             <div class="form-group pt-3"> Gender:
                                 
-                                <select class="form-select" aria-label="Default select example" formControlName="patient_gender" >
+                                <select class="form-select" aria-label="Default select example" formControlName="doctor_gender" >
                                     
                                     <option value="0">Male</option>
                                     <option value="1">Female</option>
@@ -58,7 +54,7 @@
                             
                             <button type="submit" class="btn btn-primary btn-block mt-4 w-100" (click)="submitForm()">Sign Up</button>
                             <div class="text-center pt-4 text-muted">Already have account ?
-                                <a id="forget" routerLink="/login" >Log In</a>
+                                <a id="forget" routerLink="/personelLogin" >Log In</a>
                             </div>
 
                         
@@ -70,3 +66,4 @@
         </div>
     </div>
 </div>
+

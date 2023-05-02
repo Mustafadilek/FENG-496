@@ -36,10 +36,13 @@ export class RegistrationComponent implements OnInit {
     this.addForm = this.formBuilder.group({
       patient_name: [''],
       patient_surname: [''],
-      // address: [''],
-      // password: [''],
-      // phone_number: [''],
-      national_id: [''],
+      patient_address: [''],
+      patient_national_id: [''],
+      patient_date_of_birth:[''],
+      patient_phone_number:[''],
+      patient_password:[''],
+      patient_gender:['']
+
     });
   }
   hideShowPass() {
@@ -64,14 +67,14 @@ export class RegistrationComponent implements OnInit {
   submitForm() {
     // Initialize patient object with values from input fields
     const patient = {
-      national_id: this.addForm.get('national_id').value,
-      password: '435435435',
+      national_id: this.addForm.get('patient_national_id').value,
+      password: this.addForm.get('patient_password').value,
       name: this.addForm.get('patient_name').value,
       surname: this.addForm.get('patient_surname').value,
-      date_of_birth: '15-04-1994',
-      gender: 0,
-      phone_number: this.addForm.get('patient_name').value,
-      address: this.addForm.get('patient_name').value,
+      date_of_birth: this.addForm.get('patient_date_of_birth').value,
+      gender: this.addForm.get('patient_gender').value,
+      phone_number: this.addForm.get('patient_phone_number').value,
+      address: this.addForm.get('patient_address').value,
     };
 
     this.http
