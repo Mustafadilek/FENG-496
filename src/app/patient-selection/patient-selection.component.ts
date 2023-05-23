@@ -11,19 +11,16 @@ import { RouterTestingHarness } from '@angular/router/testing';
 
 
 
-
-
-
 @Component({
   selector: 'app-patient-selection',
   templateUrl: './patient-selection.component.html',
   styleUrls: ['./patient-selection.component.css']
 })
 export class PatientSelectionComponent implements AfterViewInit  {
-  // @ViewChild('lineCanvas') lineCanvas: ElementRef | undefined;
+
   // lineChart: any;
   
-  public chartOptions: Partial<ChartOptions>;
+  // public chartOptions: Partial<ChartOptions>;
   // public chart: any;
 
   deneme: any[] = [];
@@ -75,6 +72,8 @@ export class PatientSelectionComponent implements AfterViewInit  {
     valu:boolean=false
     stat:number=null;
     situation:string='NORMAL'
+    scatt: any[] = [];
+   
   
 
   
@@ -161,12 +160,14 @@ export class PatientSelectionComponent implements AfterViewInit  {
         );
         for (var char of this.result3) {
           this.deneme=Object.entries(char)
+          console.log("de",this.deneme)
           this.deneme2=this.deneme[2][1];
+          this.scatt.push(char)
            // prints chars: H e l l o  W o r l d
         }
       
        
-      
+      console.log("scat",this.scatt)
     
   }
   getEmergencyPatient() {
@@ -264,6 +265,33 @@ export class PatientSelectionComponent implements AfterViewInit  {
       
     });
   }
+  createChart_scatter(){
+    console.log("z", this.scatt)
+    for (let i = 0; i < 18; i++) {
+      console.log("spl",this.deneme2.split(','))
+    }
+    console.log("spl",this.deneme2.split(','))
+  
+    this.chart = new Chart("MyChart", {
+      type: 'scatter', //this denotes tha type of chart
+
+      data: {// values on X-Axis
+        labels: ['1', '2', '3','4' ], 
+	       datasets: [
+          {
+            label: "Pulse",
+            data: this.deneme2.split(','),
+            backgroundColor: 'blue'
+          }
+            
+        ]
+      },
+      options: {
+        aspectRatio:2.5
+      }
+      
+    });
+  }
   colorize( ){
     if(this.stat==1){
       this.color='red';
@@ -273,22 +301,8 @@ export class PatientSelectionComponent implements AfterViewInit  {
     return this.color;
   }
   showGraph(){
-    this.createChart();
+    this.createChart_scatter();
   }
-  // chartoptions = {
-  //   title: {
-  //     text: "Basic Column Chart in Angular"
-  //   },
-  //   data: [{
-  //     type: "column",
-  //     dataPoints: [
-  //       { label: "Apple",  y: 10  },
-  //       { label: "Orange", y: 15  },
-  //       { label: "Banana", y: 25  },
-  //       { label: "Mango",  y: 30  },
-  //       { label: "Grape",  y: 28  }
-  //     ]
-  //   }]                
-  // };
+  
   
 }
