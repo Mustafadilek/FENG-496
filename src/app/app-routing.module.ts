@@ -13,7 +13,8 @@ const routes: Routes = [
   {path:'',component:WelcomeComponent},
   {path:'personelLogin', component:PersonelLoginComponent},
   {path:'personalRegistration',component:PersonalRegistrationComponent},
-  {path:'patientSelection',component:PatientSelectionComponent}
+  {path:'patientSelection',component:PatientSelectionComponent},
+  {path:'', redirectTo:'/login', pathMatch:'full'},
 ];
 
 @NgModule({

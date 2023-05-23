@@ -11,6 +11,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { PersonelLoginComponent } from './personel-login/personel-login.component';
 import { PersonalRegistrationComponent } from './personal-registration/personal-registration.component';
 import { PatientSelectionComponent } from './patient-selection/patient-selection.component';
+import { GoogleChartsModule } from 'angular-google-charts';
+import { NgApexchartsModule } from "ng-apexcharts";
+import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
+
 
 
 
@@ -33,6 +37,10 @@ import { PatientSelectionComponent } from './patient-selection/patient-selection
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    GoogleChartsModule.forRoot(),
+    NgApexchartsModule,
+    CanvasJSAngularChartsModule
+  
   
   ],
   providers: [],

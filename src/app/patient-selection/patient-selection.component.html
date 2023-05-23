@@ -1,1 +1,144 @@
-<p>patient-selection works!</p>
+<!-- <button (click)="getPatients()">Get Patients</button>
+<div class="container" (click)="getPatients()">
+    <div class="row padding-200px">
+        <div class="col-sm-3" >
+            <select class="dropdown">
+                <option *ngFor="let patient of patients">
+                    
+                          {{ patient.name }}
+                       
+                </option>
+            </select>
+        </div>
+    </div>
+</div> -->
+<!-- <button (click)="getPatients()">Get Patients</button>
+<ul *ngIf="patients && patients.length">
+  <li *ngFor="let patient of patients">
+    {{ patient.name }} ,{{ patient.age }}
+  </li>
+</ul>
+<div *ngIf="result">{{ result }}</div> -->
+<div class="dropdown"> Select Patient
+    <select (change)="onPatientSelected($event.target.value)" style="width: 400px;">
+        <option >Select Patient</option>
+        <option *ngFor="let patient of patients" [value]="patient.national_id" >{{ patient.name }}</option>
+      </select>
+      <button class="btn btn-primary" (click)="isActivated()">List All Patients</button>
+      <!-- <div class="container"></div>
+      <div *ngIf="selectedPatient" style="margin-left: 100px; margin-top:50px ;">
+        <p >Name: {{ selectedPatient.name}}</p>
+        <p>Surname: {{ selectedPatient.surname}}</p>
+        <p>National ID: {{ selectedPatient.national_id}}</p>
+        <p>Date of Birth: {{ selectedPatient.date_of_birth}}</p>
+        <p>Gender: {{ selectedPatient.gender ? 'Female': 'Male' }}</p>
+        <p>Address: {{ selectedPatient.address }}</p>
+        <p>Phone Number: {{ selectedPatient.phone_number }}</p>
+      </div>
+      <div *ngIf="result">{{ result }}</div>
+</div> -->
+
+<table class="table" *ngIf="selectedPatient">
+  <thead>
+    <tr>
+      
+      <th scope="col">Name</th>
+      <th scope="col">Surname</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Adress</th>
+      <th scope="col">Date of Birth</th>
+      <th scope="col">National ID</th>
+      <th scope="col">Gender</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{selectedPatient.name}}</td>
+      <td>{{selectedPatient.surname}}</td>
+      <td>{{selectedPatient.phone_number}}</td>
+      <td>{{selectedPatient.address}}</td>
+      <td>{{selectedPatient.date_of_birth}}</td>
+      <td>{{selectedPatient.national_id}}</td>
+      <td>{{selectedPatient.gender ? 'Female': 'Male'}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="table" *ngIf="isActive" >
+  <thead>
+    <tr>
+      
+      <th scope="col">Name</th>
+      <th scope="col">Surname</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Adress</th>
+      <th scope="col">Date of Birth</th>
+      <th scope="col">National ID</th>
+      <th scope="col">Gender</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let patient of patients">
+      <td>{{patient.name}}</td>
+      <td>{{patient.surname}}</td>
+      <td>{{patient.phone_number}}</td>
+      <td>{{patient.address}}</td>
+      <td>{{patient.date_of_birth}}</td>
+      <td>{{patient.national_id}}</td>
+      <td>{{patient.gender ? 'Female': 'Male'}}</td>
+    </tr>
+  </tbody>
+</table>
+<div>
+  <button  type="button" class="btn btn-primary"  (click)="getRecord2()">Get Record</button>
+  <button type="button" class="btn btn-warning" style="margin-left: 10px;"  (click)="showGraph()">Show Graph</button>
+</div>
+
+
+
+</div>
+<table class="table" *ngIf="result3" >
+  <thead>
+    <tr>
+      
+      <th scope="col">Record ID</th>
+      <th scope="col">Sensor ID</th>
+      <th scope="col">Pulse</th>
+      <th scope="col">Created Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let record of result3">
+      <td>{{record.id}}</td>
+      <td>{{record.sensor_id}}</td>
+      <td>{{record.sensor_data}}</td>
+      <td>{{record.created_date}}</td>
+    </tr>
+  </tbody>
+</table>
+<!-- <div>
+  <button (click)=" getEmergencyPatient()">Get Emergency</button>
+</div>
+<div *ngIf="result4">
+  <p>Result:</p>
+  <pre>{{ result4.emergency_status}}</pre>
+</div> -->
+
+<!-- <div>
+  <h1>4. Line chart</h1>
+  <canvas #lineCanvas style="height:10vh; width:20vw"></canvas>
+  <hr color="red">
+</div> -->
+<div class="chart-container" style="width:500px;">
+  <canvas  id="MyChart" >{{ chart }}</canvas>
+</div>
+<div *ngIf="result4">
+  <div [stat]="result4.emergency_status" [style.backgroundColor]="colorize()"   style="width:150px; height:150px; text-align: center; padding-top:55px">{{situation}}</div>
+</div>
+
+
+<!-- <div>
+  <canvasjs-chart [options]="chartOptions"></canvasjs-chart>
+</div> -->

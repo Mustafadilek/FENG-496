@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-personel-login',
@@ -13,6 +14,7 @@ export class PersonelLoginComponent {
   isText:boolean=false;
   constructor(private formBuilder: FormBuilder,
    private http: HttpClient,
+   private router: Router
    ){}
    httpOptions = {
      headers: new HttpHeaders({
@@ -51,7 +53,7 @@ export class PersonelLoginComponent {
      this.http
        .post('http://localhost/profiler/doctors/login', doctor, this.httpOptions)
        .subscribe({
-          next: (response) => console.log(response),
+          next: (response) => {this.router.navigate(['/patientSelection'])},
          error: (error) => console.log(error),
          
        });
